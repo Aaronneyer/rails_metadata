@@ -36,7 +36,7 @@ module RailsMetadata
                  end
       define_method(name.to_s + '=') do |val|
         self.metadata = {} unless self.metadata.present?
-        if val.present?
+        if val.present? || val == false
           self.metadata.merge!(name => typecast.call(val))
         else
           self.metadata.delete(name)

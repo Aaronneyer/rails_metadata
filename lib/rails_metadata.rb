@@ -15,7 +15,7 @@ module RailsMetadata
                  when nil then val
                  when :boolean
                    lambda do |v|
-                     if v.is_a(String)
+                     if v.is_a?(String)
                        if ["true", "1"].include?(v)
                          return true
                        elsif ["false", "0"].include?(v)

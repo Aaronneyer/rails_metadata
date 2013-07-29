@@ -1,6 +1,8 @@
 # RailsMetadata
 
-TODO: Write a gem description
+For adding fake fields stored in a hash in Rails.
+
+More documentation to come when I'm less lazy.
 
 ## Installation
 
@@ -18,7 +20,18 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+For any model you want to use this on, add the following.
+```
+include RailsMetadata
+serializable :metadata, Hash
+```
+And perform the following migration
+```
+add_column :table_name, :metadata, :text
+```
+
+The default limit on :text fields is 65535, so if you anticipate storing more
+than that, you should set the limit higher on the column.
 
 ## Contributing
 

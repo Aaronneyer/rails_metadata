@@ -13,7 +13,7 @@ module RailsMetadata
       end
       typecast = case type
                  when nil then val
-                 when :boolean then lambda { |v| v.is_a?(String) ? v.empty? : !!v }
+                 when :boolean then lambda { |v| v.is_a?(String) ? !v.empty? : !!v }
                  when :string then lambda { |v| v.to_s }
                  when :integer then lambda { |v| v.to_i }
                  when :float then lambda { |v| v.to_f }
